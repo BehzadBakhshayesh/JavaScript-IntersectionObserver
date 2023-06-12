@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+       
+      div {
+       
+        width: 100%;
+        height: 100vh;
+        border: 1px solid blue;
+        box-sizing: border-box;
+        margin: 10px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 300px;
+        transition: all ease 1s;
+      }
+      .cl0{
+        /* opacity: 0; */
+        transform: rotateY(90deg);
+        
+      }
+     
+      .cl50{
+         /* opacity: 1; */
+         background-color: orange;
+         transform: rotateY(0deg);
+         
+        
+        
+      }
+     
+    </style>
+  </head>
+  <body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div >
+      <img src="./1.png" id="main">
+    </div>
+    <div>5</div>
+    <div>6</div>
+
+    <script>
+
+            let observer  = new IntersectionObserver((entries)=>{
+                console.log(entries);
+                if(entries[0].intersectionRatio >=0.5 ){
+                    entries[0].target.src='./2.png'
+                }else{
+                    entries[0].target.src='./1.png'
+                }
+                
+            },{
+                 threshold: 0.5
+            })
+            observer.observe(document.getElementById('main'))
+    </script>
+  </body>
+</html>
